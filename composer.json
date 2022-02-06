@@ -1,0 +1,25 @@
+{
+    "name": "piero-aiello/add-menu-page",
+    "description": "An easy way to create admin pages in WordPress",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "WpAdminPage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Piero Aiello",
+            "email": "pieroaiello13810@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/piero-aiello"
+        }
+    ]
+
+
+}
