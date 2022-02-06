@@ -25,10 +25,6 @@ class BuildPage{
     private $position = "";
     private $path = "";
 
-  public function __construct()
-  {
-
-  }
 
   public static function start(){
 
