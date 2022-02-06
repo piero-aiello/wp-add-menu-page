@@ -50,16 +50,17 @@
 
 namespace WpAdminPage;
 
-class BuildPage
+class BuildSubPage
 {
 
   private $page_title = "";
   private $menu_title = "";
   private $capability = "manage_options";
   private $page_name = "";
-  private $dashicon = "";
   private $position = "";
+  private $parent_slug = "";
   private $path = "";
+
 
 
   /**
@@ -71,7 +72,8 @@ class BuildPage
   public static function start()
   {
 
-    return new BuildPage();
+    // return new instance of class
+    return new BuildSubPage();
   }
 
 
@@ -86,8 +88,8 @@ class BuildPage
   public function setPageTitle(string $page_title): self
   {
 
+    // set property
     $this->page_title = $page_title;
-
     return $this;
   }
 
@@ -118,7 +120,6 @@ class BuildPage
 
   public function setCapability(string $capability): self
   {
-
     $this->capability = $capability;
     return $this;
   }
@@ -149,11 +150,10 @@ class BuildPage
    *
    * @return  class
    */
-
-  public function setDashIcon(string $dashicon): self
+  public function setParentSlug(string $parent_slug): self
   {
 
-    $this->dashicon = $dashicon;
+    $this->parent_slug = $parent_slug;
     return $this;
   }
 
@@ -191,22 +191,17 @@ class BuildPage
 
 
 
-
   /**
    * packages piero-aiello/add-menu-page
    *
-   * @return  string  slug of parent page
+   * @return  null
    */
 
   public function createPage()
   {
 
     add_action('admin_menu', array($this, 'fire'), 10, 1);
-
-    return $this->page_name;
   }
-
-
 
 
   /**
@@ -224,7 +219,7 @@ class BuildPage
 
 
 
-  /**
+   /**
    * packages piero-aiello/add-menu-page
    *
    * @return  null
@@ -233,28 +228,34 @@ class BuildPage
   public function fire()
   {
 
-    if ($this->page_title == "" || $this->menu_title == "" || $this->path == "" || $this->page_name == "") {
+    if (
+      $this->page_name  == "" ||
+      $this->parent_slug == "" ||
+      $this->page_title  == "" ||
+      $this->menu_title  == "" ||
+      $this->path        == ""
+    ) {
 
       throw new \Exception("Error have to compile all fileds", 1);
     }
 
-    // main page
-    add_menu_page(
+
+    // sub page
+    \add_submenu_page(
+      $this->parent_slug,
       $this->page_title,
       $this->menu_title,
       $this->capability,
       $this->page_name,
       array($this, 'admin_page_cb'),
-      $this->dashicon,
       $this->position
     );
-
   }
 
 
 
 
-  /**
+   /**
    * packages piero-aiello/add-menu-page
    *
    * @return  null
