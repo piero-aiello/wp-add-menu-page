@@ -12,21 +12,7 @@
   *  80 - below Settings
   *  100 - below second separator
 **/
-/********************USAGE**************
- use \App\Admin\Admin_page;
-$pathPage = get_template_directory().'/temp-admin.php';
 
-//$adminPage = new Admin_page();
-Admin_page::start()
-->setPageTitle('titolo pagina')
-->setMenuTitle('Menu title')
-->setCapability('manage_options')
-->setPageName('Page-name')
-->setDashIcon('dashicons-admin-site')
-->setPosition('80')
-->setPathPage($pathPage)
-->createPage();
- ***************************USAGE******************/
 namespace WpAdminPage;
 
 class BuildPage{
@@ -41,7 +27,7 @@ class BuildPage{
 
   public function __construct()
   {
-    
+
   }
 
   public static function start(){
@@ -50,7 +36,7 @@ class BuildPage{
   }
 
 
-  
+
 
   public function setPageTitle(string $page_title):self{
 
@@ -112,13 +98,13 @@ class BuildPage{
   }
 
   public function fire(){
-   
+
     if ($this->page_title == "" || $this->menu_title == "" || $this->path == "") {
 
      throw new \Exception("Error have to compile all fileds", 1);
-     
+
     }
-      
+
       // main page
     \add_menu_page(
     $this->page_title,
@@ -132,9 +118,9 @@ class BuildPage{
   }
 
   public function admin_page_cb(){
-      
+
     require_once $this->path;
-  
+
 }
 
 }

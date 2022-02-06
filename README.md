@@ -24,7 +24,7 @@ use \WpAdminPage\BuildPage;
 BuildPage::start()
 ->setPageTitle('titolo pagina') // required
 ->setMenuTitle('Menu title')    // required
-->setCapability('manage_options') // required
+->setCapability('manage_options') // optional default manage_options
 ->setPageName('Page-name')       // required
 ->setDashIcon('dashicons-admin-site')  // optional
 ->setPosition('80')   // optional
