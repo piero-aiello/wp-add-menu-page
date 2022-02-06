@@ -13,7 +13,7 @@ $pathPage = get_template_directory().'/example-page.php';
 use \WpAdminPage\BuildPage;
 
 BuildPage::start()
-->setPageTitle('titolo pagina') // required
+->setPageTitle('page title') // required
 ->setMenuTitle('Menu title')    // required
 ->setCapability('manage_options') // optional default manage_options
 ->setPageName('Page-name')       // required
@@ -40,7 +40,7 @@ $pathSubPage = get_template_directory().'/temp-admin-subpage.php';
 
 //$adminPage = new Admin_page();
 $page_parent_slug = BuildPage::start()
-->setPageTitle('titolo pagina')
+->setPageTitle('Page title')
 ->setMenuTitle('Menu title')
 ->setCapability('manage_options')
 ->setPageName('Page-name')
