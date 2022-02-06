@@ -22,3 +22,41 @@ BuildPage::start()
 ->setPathPage($pathPage)
 ->createPage();
 ```
+
+## Create Sub menu page from parent slug
+BuildPage() return the slug of page for sub menu usage:
+
+```php
+include('vendor/autoload.php');
+
+use \WpAdminPage\BuildPage;
+use \WpAdminPage\BuildSubPage;
+
+// create a example main page like this:
+$pathPage = get_template_directory().'/temp-admin.php';
+
+// create a example sub page like this:
+$pathSubPage = get_template_directory().'/temp-admin-subpage.php';
+
+//$adminPage = new Admin_page();
+$page_parent_slug = BuildPage::start()
+->setPageTitle('titolo pagina')
+->setMenuTitle('Menu title')
+->setCapability('manage_options')
+->setPageName('Page-name')
+->setDashIcon('dashicons-admin-site')
+->setPosition('80')
+->setPathPage($pathPage)
+->createPage();
+
+
+BuildSubPage::start()
+->setPageTitle('titolo sub pagina')
+->setMenuTitle('Menu sub title')
+->setCapability('manage_options')
+->setPageName('Page-sub-name')
+->setParentSlug($page_parent_slug)
+->setPosition('80')
+->setPathPage($pathSubPage)
+->createPage();
+```
