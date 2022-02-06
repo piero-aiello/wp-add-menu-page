@@ -24,7 +24,7 @@ BuildPage::start()
 ```
 
 ## Create Sub menu page from parent slug
-BuildPage() return the slug of page for sub menu usage:
+BuildPage()cal also return the slug of page as variable for sub menu usage:
 
 ```php
 include('vendor/autoload.php');
