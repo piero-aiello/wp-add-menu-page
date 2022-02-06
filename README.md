@@ -1,7 +1,6 @@
 # Admin Menu Page Builder
 An easy way to create `admin pages` in WordPress
 
-[![Build Status](https://github.com/piero-aiello/add-menu-page)](https://github.com/piero-aiello/add-menu-page)
 
 ## How to use in managed environments
 
