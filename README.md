@@ -2,15 +2,6 @@
 An easy way to create `admin pages` in WordPress
 
 
-## How to use in managed environments
-
-If you wish to use this extension in a managed environment, simply install using `composer`:
-
-```
-composer require stephenharris/wp-query-builder
-```
-
-To use the Query builder
 
 ```php
 include('vendor/autoload.php');
